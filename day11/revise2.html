@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    const parent=document.querySelector(".language")
+    const list=document.createElement("li")
+    const babay=document.createTextNode("typescript")
+    list.appendChild(babay)
+    parent.appendChild(list)
+</script>
+</html>
