@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+
+    }
+    .container{
+        height: 100vh;
+        width: 100vw;
+
+       
+        
+    }
+    .frame{
+        height: 400px;
+        width: 600px;
+        border: 2px solid red;
+        background-color: aqua;
+        margin-left: 100px;
+    }
+    img{
+        margin: 20px;
+        height: 100px;
+        width: 100px;
+        border: 2px solid red;
+        border-radius: 50%;
+    }
+</style>
+<body>
+   <div class="container">
+    <div class="frame">
+        <div class="img">
+            <img src="https://avatars.githubusercontent.com/u/127934250?v=4" alt="">
+        </div>
+      
+    </div>
+   </div>
+</body>
+<script>
+    const requrl="https://api.github.com/users/Aryan123-lama"
+    const xhr=new XMLHttpRequest()
+    xhr.open("GET",requrl)
+    xhr.onreadystatechange=function()
+    {
+        console.log(xhr.readyState);
+        if (xhr.readyState===4) {
+            const data=JSON.parse(this.responseText)
+            console.log(data.followers);
+            console.log(data.id)
+            console.log(data.avatar_url);
+        }
+    }
+    xhr.send()
+</script>
+</html>

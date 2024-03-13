@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chai aur code</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const func=function(str){
+        document.body.style.backgroundColor=str
+    }
+    const what=setInterval(func,1000,"si")
+
+    document.querySelector("#stop").addEventListener("click",()=>{
+        clearInterval(what)
+    })
+
+    document.querySelector("#start").addEventListener("click",()=>{
+        setInterval(func,1000,"si")
+    })
+</script>
+</html>
