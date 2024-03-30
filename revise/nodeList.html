@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mybtn{
+            font-size: 4rem;
+            margin: 10px;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="mybtn">button 1</button>
+    <button class="mybtn">button 2</button>
+    <button class="mybtn">button 3</button>
+    <button class="mybtn">button 4</button>
+
+    
+
+</body>
+<script>
+    let btn=document.querySelectorAll('.mybtn')
+    console.log(btn);
+    btn.forEach(btns=>{
+        // e.style.backgroundColor="green"\
+        // btns.addEventListener("click",(e)=>{
+        //     e.target.style.backgroundColor="tomato"
+        // })
+        btns.style.backgroundColor="green"
+        btns.addEventListener("mouseover",(e)=>{
+            e.target.style.backgroundColor="tomato"
+        })
+        btns.addEventListener("mouseout",(e)=>{
+            e.target.style.backgroundColor="blue"
+        })
+    })
+</script>
+</html>
