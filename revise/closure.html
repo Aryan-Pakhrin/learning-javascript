@@ -1,0 +1,62 @@
+closure= A function defined inside of another function
+        the inner function has accessed to the variable
+        and scope of the outer function.
+        Allow for private variable and state maintenance
+        used frequently in js frameworks: React , vue and angular
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// function outer(){
+//     let message="main"
+//     function inner(){
+//         console.log(message);
+//     }
+//     inner()
+// }
+// outer()
+
+// function increment(){
+//     let count=0;
+//     count++
+//     console.log(`count increased to${count}`);
+// }
+// increment()
+
+function createGame(){
+let score = 0;
+
+    function increaseScore(points){
+        score += points;
+        console.log(`+${points}pts`);
+    }
+    
+    function decreaseScore(points){
+        score -= points;
+        console.log(`-${points}pts`);
+    }
+    
+    function getScore(){
+        return score;
+    }
+
+    return {increaseScore, decreaseScore, getScore};
+}
+
+
+const game = createGame();
+
+game.increaseScore(5);
+// game.increaseScore(6);
+game.decreaseScore(3);
+
+console.log(`The final score is ${game.getScore()}pts`);
+    </script>
+</body>
+</html>
