@@ -1,0 +1,42 @@
+<!-- callbacks= a function that is passed as an argument to another function -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // hello(goodbye)
+    // function hello(callback){
+    //     console.log("hello");
+    //     callback()
+    // }
+
+    // function goodbye(){
+    //     console.log("goodbye");
+    // }
+
+    // function leave(){
+    //     console.log("leave");
+    // }
+
+    // function wait(){
+    //     console.log("wait");
+    // }
+sum(result,1,2)
+
+function sum(callback,x,y){
+    let result=x+y
+    callback(result)
+}
+
+function result(result){
+    console.log(result);
+}
+</script>
+</html>
