@@ -1,0 +1,104 @@
+/promise= an object that manages asynchronous operations.
+        wrap a promise object around { asynchronous code}
+        "i promise to return a value"
+        pending-> resolved or rejected
+        new promise((resolve,reject))=>asychronous code
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            
+        </body>
+        <script>
+            // function walkdog(callback){
+            //     setTimeout(()=>{
+            //         console.log("you walk the dog");
+            //         callback()
+            //     },1500)
+            // }
+            // function clean(callback){
+            //     setTimeout(()=>{
+                    
+            //         console.log("clean the kitchen");
+            //         callback()
+            //     },2500)
+            // }
+            // function take(callback){
+            //     setTimeout(()=>{
+            //         console.log("take out the trash");
+            //         callback()
+            //     },5000)
+            // }
+            // walkdog(()=>{
+            //     clean(()=>{
+            //         take(()=>{
+            //             console.log("job done");
+            //         })
+            //     })
+            // })
+
+            function walkdog(){
+                return new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        const dogwalked=true
+                        if(dogwalked){
+                            resolve("you walked the dog");
+                        }
+                        else{
+                            reject("you didn't complete the work")
+                        }
+                    },1500)
+                })
+            }
+            function cleanKitchen(){
+                return new Promise((resolve,reject)=>{
+
+              
+                setTimeout(()=>{
+                    const con=true
+                    if(con){
+                        resolve("you clean the kitchen")
+                    }
+                    else{
+                        reject("you didn't clean the kitchen")
+                    }
+                },2000)
+            })
+            }
+            function cleantrash(){
+                return new Promise((resolve,reject)=>{
+
+                
+                setTimeout(()=>{
+                    const con=false
+                    if(con){
+                        resolve("you clean the trash")
+                    }
+                    else{
+                        reject("you didn't clean the trash")
+                    }
+                },2000)
+            })
+            }
+
+            walkdog()
+    .then(value => {
+        console.log(value);
+        return cleanKitchen(); // chaining the next function
+    })
+    .then(value => {
+        console.log(value);
+        return cleantrash(); // chaining the next function
+    })
+    .then(value => {
+        console.log(value); // final function in the chain
+    })
+    .catch(error => {
+        console.log(error);
+    });
+        </script>
+        </html>
