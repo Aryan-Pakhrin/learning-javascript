@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="pokemonName" placeholder="Enter pokemon Name">
+    <button id="click">Fetch Pokemon</button><br>
+    <img src="" alt="pokemon" id="pokemonSprite" style="display: none;">
+</body>
+<script>
+    // fetch= function used for makeing http request to fetch resources
+        // (json style data ,images, files)
+        // simplifies asynchronous data fetching in javascript and
+        // used for interacting with apis to retreve and send data 
+        // asynchronously over the web
+        // fetch (url,(optional))
+
+        // fetch("https://pokeapi.co/api/v2/pokemon/spongebob")
+        // .then(response=>{
+        //     if(!response.ok){
+        //         throw new Error("could't fetch the data")
+        //     }
+        //     return response.json()
+        // })
+        // .then(data=>console.log(data.id))
+        // .catch(error=>console.log(error))
+
+        
+            // fetchData()
+        async function fetchData(){
+
+            try{
+                const pokemonName=document.getElementById("pokemonName").value.toLowerCase()
+
+                const response=await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+
+                if(!response.ok){
+                    throw new Error("could not fetch response")
+
+                }
+                const data= await response.json()
+                const pokemonSprite=data.sprites.front_default
+                const imgElement=document.getElementById("pokemonSprite")
+
+                imgElement.src=pokemonSprite
+                imgElement.style.display="block"
+            }
+            catch(error){
+                console.log(error);
+            }
+        }
+        const click=document.getElementById('click')
+    click.addEventListener("click", fetchData);
+</script>
+</html>
