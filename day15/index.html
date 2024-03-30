@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,5 +25,48 @@
         clearTimeout(change)
         console.log("stopped");
     },2000)
+</script>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        #box{
+            height: 30px;
+            width: 30px;
+            background-color: red;
+            position: relative; /* Add position relative */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    let a = 0;
+    let target = document.getElementById("box");
+
+    // Get the width of the body
+    let bodyWidth = document.body.clientWidth;
+
+    setInterval(anim, 100); // Reduce the interval for smoother animation
+
+    function anim() {
+        a = a + 1; // Increase by 1 instead of 10
+        if (a >= bodyWidth) {
+            a = 0; // Reset position when it reaches the end
+        }
+        target.style.left = a + "px"; // Set left position instead of margin
+    }
 </script>
 </html>
