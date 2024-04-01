@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(33, 100, 100);
+        }
+        .container{
+            width: 360px;
+            padding: 33px;
+            text-align: center;
+            background-color: antiquewhite;margin-left: 33%;margin-top: 5px;
+
+        }
+        input{
+            width: 270px;
+            padding: 8px;
+            border: 2px solid aqua;
+            outline: none;
+
+        }
+        button{
+            width: 60px;
+            height: 35px;
+        
+            border-radius: 3px;
+            font-size: 20px;
+        }
+        .text ul{
+            position: relative;
+            background-color: black;
+            color: white;
+            font-size: 19px;
+            text-align: left;
+        }
+        .text ul i{
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To Do App</h1>
+        <div class="inputs">
+            <input type="text" placeholder="Enter your task" id="inp">
+            <button id="add" >Add</button>
+        </div>
+        <div class="text">
+
+        </div>
+    </div>
+    
+</body>
+<script src="https://kit.fontawesome.com/7e3ec7e4c8.js" crossorigin="anonymous"></script>
+
+<script>
+let inputs =document.getElementById("inp")
+let text=document.querySelector(".text")
+let add=document.querySelector("#add")
+add.addEventListener("click",sum)
+
+function sum(){
+    if(inputs.value==""){
+        alert("please add tasks")
+    }
+    else{
+        const any=document.createElement("ul")
+        any.innerHTML=`${inputs.value} <i class="fa-solid fa-trash"></i>`
+        text.appendChild(any)
+        inputs.value=""
+
+        any.querySelector('i').addEventListener("click",remove)
+        function remove(){
+            any.remove(inputs.value)
+        }
+
+    }
+
+}
+
+
+
+
+
+</script>
+</html>
