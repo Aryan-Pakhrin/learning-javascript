@@ -62,6 +62,7 @@
 let inputs =document.getElementById("inp")
 let text=document.querySelector(".text")
 let add=document.querySelector("#add")
+
 add.addEventListener("click",sum)
 
 function sum(){
@@ -73,7 +74,6 @@ function sum(){
         any.innerHTML=`${inputs.value} <i class="fa-solid fa-trash"></i>`
         text.appendChild(any)
         inputs.value=""
-
         any.querySelector('i').addEventListener("click",remove)
         function remove(){
             any.remove(inputs.value)
